@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitBuddy – AI Fitness Coach</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>💪 FitBuddy</h1>
+      <p>AI Fitness Plan & Nutrition Generator</p>
+    </header>
+
+    <section class="card">
+      <h2>🔑 Gemini API</h2>
+      <input id="apiKey" type="password" placeholder="Gemini API key (optional if saved in .env)" />
+      <p class="hint">Your key is sent only to your local FitBuddy backend.</p>
+    </section>
+
+    <section class="card">
+      <h2>👤 Tell Us About Yourself</h2>
+      <div class="grid">
+        <label>Age<input id="age" type="number" min="10" max="100" value="19"></label>
+        <label>Height (cm)<input id="height" type="number" min="100" max="230" value="165"></label>
+        <label>Weight (kg)<input id="weight" type="number" min="25" max="250" value="60"></label>
+        <label>Gender<select id="gender"><option>Male</option><option>Female</option><option>Other</option></select></label>
+        <label>Environment<select id="environment"><option value="gym">Gym</option><option value="home">Home</option></select></label>
+        <label>Workout days/week<input id="days" type="number" min="1" max="7" value="5"></label>
+        <label>Session duration (min)<input id="duration" type="number" min="15" max="120" step="15" value="45"></label>
+        <label>Primary goal<select id="goal"><option value="weight_loss">Weight Loss</option><option value="weight_gain">Weight Gain</option><option value="muscle_building">Muscle Building</option></select></label>
+        <label>Kg to lose/gain<input id="target" type="number" min="1" max="30" step="0.5" value="5"></label>
+        <label>State / Region<input id="state" value="Tamil Nadu"></label>
+        <label>Dietary type<select id="veg"><option>Vegetarian</option><option>Non-vegetarian</option><option>Mixed</option></select></label>
+        <label>Food style<select id="food"><option>Home food</option><option>Diet food</option></select></label>
+      </div>
+      <label class="check"><input id="abs" type="checkbox" checked> Include Abs/Core training</label>
+      <button id="generate">🚀 Generate My Plan</button>
+      <div id="status" class="status"></div>
+    </section>
+
+    <section id="dashboard" class="hidden">
+      <div id="summary" class="summary"></div>
+      <div class="tabs">
+        <button class="tab active" data-tab="workouts">🏋 Workouts</button>
+        <button class="tab" data-tab="nutrition">🍎 Nutrition</button>
+        <button class="tab" data-tab="chat">💬 Coach Chat</button>
+      </div>
+      <div id="workouts" class="tab-content"></div>
+      <div id="nutrition" class="tab-content hidden"></div>
+      <div id="chat" class="tab-content hidden"></div>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
